@@ -1,7 +1,4 @@
-﻿using System.Dynamic;
-using DAL.Interfaces;
-using Domain.Entity;
-using Domain.Enum;
+﻿using Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 using StatusCodes = Domain.Enum.StatusCodes;
@@ -82,10 +79,10 @@ public class EmployeeController : Controller
         {
             return BadRequest(new { HttpResponseMessage = response.Description });
         }
-        return Ok(new {HttpResponseMessage = $"Employee name: {response.Data.Name}.\n" +
-                                             $"Current employee salary: {response.Data.Name}.\n" +
-                                             $"Period: {startDate:dd:MM:yyyy}-{endDate:dd:MM:yyyy}.\n" +
-                                             $"Salary in this period: {response.SalaryPeriodCount}"});
+        return Ok(new {HttpResponseMessage = $"Employee name: {response.Data.Name}. " +
+                                             $"Current employee salary: {response.Data.Salary}. " +
+                                             $"Period: {startDate:dd:MM:yyyy}-{endDate:dd:MM:yyyy}. " +
+                                             $"Salary in this period: {response.SalaryPeriodCount:0.00}"});
     }
 
 }

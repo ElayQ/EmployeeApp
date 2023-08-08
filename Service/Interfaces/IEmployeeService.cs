@@ -1,5 +1,4 @@
 ﻿using Domain.Entity;
-using Domain.Enum;
 using Domain.Response;
 
 namespace Service.Interfaces;

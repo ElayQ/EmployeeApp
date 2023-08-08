@@ -1,9 +1,6 @@
 ﻿using DAL.Interfaces;
 using Domain.Entity;
-using Domain.Enum;
-using Domain.Response;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 namespace DAL.Repositories;
 

@@ -1,13 +1,9 @@
-﻿
-using CLI;
-using CLI.Controllers;
+﻿using CLI.Controllers;
 using DAL;
 using DAL.Interfaces;
 using DAL.Repositories;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Service.Implementations;
 using Service.Interfaces;
 

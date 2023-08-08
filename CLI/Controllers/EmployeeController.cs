@@ -59,11 +59,11 @@ public class EmployeeController
     private async Task GetEmployeeByName()
     {
         Console.WriteLine("Name: ");
-        var name = "";
+        string name;
         while (true)
         {
             name = Console.ReadLine();
-            if (name != "") break;
+            if (name != null) break;
             Console.WriteLine("Name can't be empty");
         }
 
@@ -80,7 +80,7 @@ public class EmployeeController
                           $"Age: {response.Data.Age}\n" +
                           $"Appointment: {response.Data.Appointment}\n" +
                           $"Salary: {response.Data.Salary}\n" +
-                          $"EmploymentDate: {response.Data.EmploymentDate:dd.MM.yyyy}" +
+                          $"EmploymentDate: {response.Data.EmploymentDate:dd.MM.yyyy}\n" +
                           $"=========================================");
         
     }
@@ -118,7 +118,7 @@ public class EmployeeController
                           $"Age: {response.Data.Age}\n" +
                           $"Appointment: {response.Data.Appointment}\n" +
                           $"Salary: {response.Data.Salary}\n" +
-                          $"EmploymentDate: {response.Data.EmploymentDate:dd.MM.yyyy}" +
+                          $"EmploymentDate: {response.Data.EmploymentDate:dd.MM.yyyy}\n" +
                           $"=========================================");
     }
     
@@ -157,7 +157,7 @@ public class EmployeeController
                           $"Age: {response.Data.Age}\n" +
                           $"Appointment: {response.Data.Appointment}\n" +
                           $"Salary: {response.Data.Salary}\n" +
-                          $"EmploymentDate: {response.Data.EmploymentDate:dd.MM.yyyy}" +
+                          $"EmploymentDate: {response.Data.EmploymentDate:dd.MM.yyyy}\n" +
                           $"=========================================");
     }
     
@@ -183,7 +183,7 @@ public class EmployeeController
                           $"Age: {response.Data.Age}\n" +
                           $"Appointment: {response.Data.Appointment}\n" +
                           $"Salary: {response.Data.Salary}\n" +
-                          $"EmploymentDate: {response.Data.EmploymentDate:dd.MM.yyyy}" +
+                          $"EmploymentDate: {response.Data.EmploymentDate:dd.MM.yyyy}\n" +
                           $"=========================================");
     }
 
@@ -201,10 +201,12 @@ public class EmployeeController
             Console.WriteLine(response.Description);
             return;
         }
-        Console.WriteLine($"Employee name: {response.Data.Name}.\n" +
+        Console.WriteLine($"=========================================\n" +
+                          $"Employee name: {response.Data.Name}.\n" +
                           $"Current employee salary: {response.Data.Salary}.\n" +
                           $"Period: {startDate:dd.MM.yyyy}-{endDate:dd.MM.yyyy}.\n" +
-                          $"Salary in this period: {response.SalaryPeriodCount}");
+                          $"Salary in this period: {response.SalaryPeriodCount:0.00}\n" +
+                          $"=========================================");
     }
     
     public void EmployeeMenu()
@@ -239,6 +241,8 @@ public class EmployeeController
                     SalaryPeriodEmployeeCountByName().Wait();
                     GetReturnMenu();
                     break;
+                case '0':
+                    return;
                 case 'r':
                     GetMenu();
                     break;
